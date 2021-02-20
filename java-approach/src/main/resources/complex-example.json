@@ -1,0 +1,30 @@
+[
+  {
+    "patient": {
+      "id": "u234982",
+      "name": "John",
+      "surname": "Doe",
+      "phone": "01891237163"
+    },
+    "doctor": {
+      "id": "d981652",
+      "name": "Mary",
+      "surname": "Smith"
+    },
+    "appointmentDate": "2021/02/20 10:00"
+  },
+  {
+    "patient": {
+      "id": "u234982",
+      "name": "Jack",
+      "surname": "Dae",
+      "phone": "01891237162"
+    },
+    "doctor": {
+      "id": "d981652",
+      "name": "Mary",
+      "surname": "Smith"
+    },
+    "appointmentDate": "2021/02/20 10:15"
+  }
+]

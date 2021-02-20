@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.*;
 public class ProcessingUtilsTest {
 
     private ListAppender<ILoggingEvent> listAppender;
-    private final String START_READ_FILE_LOG_MESSAGE = "Starting to read file";
+    private final String START_READ_FILE_LOG_MESSAGE = "Starting to read file: ";
     private final String START_PARSE_JSON_LOG_MESSAGE = "Parsing json";
     private final String JSON_PARSED_LOG_MESSAGE = "Json parsed";
 
@@ -29,9 +29,10 @@ public class ProcessingUtilsTest {
 
     @Test
     public void shouldReadFileAndReturnString() {
-        final String fileString = readFile("src/test/resources/read-file.txt");
+        final String path = "src/test/resources/read-file.txt";
+        final String fileString = readFile(path);
         assertThat(fileString, equalTo("FileReaderTest"));
-        assertFileReadSuccessfullyHasRightLogMessages();
+        assertFileReadSuccessfullyHasRightLogMessages(path);
     }
 
     @Test
@@ -70,8 +71,9 @@ public class ProcessingUtilsTest {
 
     @Test
     public void shouldConvertJsonFileToObjectSuccessfully() {
-        assertThat(convertJsonFileToObject("src/test/resources/json-examples/success.json", Appointment.class), samePropertyValuesAs(createAppointment()));
-        assertFileReadSuccessfullyHasRightLogMessages();
+        final String path = "src/test/resources/json-examples/success.json";
+        assertThat(convertJsonFileToObject(path, Appointment.class), samePropertyValuesAs(createAppointment()));
+        assertFileReadSuccessfullyHasRightLogMessages(path);
         assertThat(listAppender.list.get(2).getMessage(), equalTo(START_PARSE_JSON_LOG_MESSAGE));
         assertThat(listAppender.list.get(3).getMessage(), equalTo(JSON_PARSED_LOG_MESSAGE));
     }
@@ -93,13 +95,13 @@ public class ProcessingUtilsTest {
         return appointment;
     }
 
-    private void assertFileReadSuccessfullyHasRightLogMessages() {
-        assertThat(listAppender.list.get(0).getMessage(), equalTo(START_READ_FILE_LOG_MESSAGE));
+    private void assertFileReadSuccessfullyHasRightLogMessages(String path) {
+        assertThat(listAppender.list.get(0).getMessage(), equalTo(START_READ_FILE_LOG_MESSAGE + path));
         assertThat(listAppender.list.get(1).getMessage(), equalTo("File read"));
     }
 
     private void assertFailureToReadFileLogMessages(String path) {
-        assertThat(listAppender.list.get(0).getMessage(), equalTo(START_READ_FILE_LOG_MESSAGE));
+        assertThat(listAppender.list.get(0).getMessage(), equalTo(START_READ_FILE_LOG_MESSAGE + path));
         assertThat(listAppender.list.get(1).getMessage(), equalTo(String.format("File '%s' does not exist", path)));
     }
 }

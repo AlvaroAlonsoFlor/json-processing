@@ -16,7 +16,7 @@ public class ProcessingUtils {
     public static String readFile(String path) {
         String fileAsString = "";
         try {
-            log.info("Starting to read file");
+            log.info("Starting to read file: " + path);
             fileAsString = FileUtils.readFileToString(new File(path), "UTF-8");
             log.info("File read");
         } catch (IOException e) {
@@ -40,4 +40,5 @@ public class ProcessingUtils {
     public static <T> T convertJsonFileToObject(String path, Class<T> objectType) {
         return parseJson(readFile(path), objectType);
     }
+
 }
