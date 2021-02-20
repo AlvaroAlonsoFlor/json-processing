@@ -50,8 +50,6 @@ public class ProcessingUtilsTest {
                 "  \"appointmentDate\": \"2021/02/20 10:00\"\n" +
                 "}";
 
-
-
         assertThat(parseJson(json, Appointment.class), samePropertyValuesAs(createAppointment()));
         assertThat(listAppender.list.get(0).getMessage(), equalTo(START_PARSE_JSON_LOG_MESSAGE));
         assertThat(listAppender.list.get(1).getMessage(), equalTo(JSON_PARSED_LOG_MESSAGE));
