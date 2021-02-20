@@ -18,4 +18,4 @@ jobs:
         with:
           java-version: 1.14.0
       - name: Build
-        run: mvn clean install
+        run: cd java-approach && mvn clean install
