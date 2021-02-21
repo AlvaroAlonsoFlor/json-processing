@@ -21,3 +21,8 @@ jobs:
         run: cd javascript-approach && npm install
       - name: Run tests
         run: cd javascript-approach && npm run test:coverage
+      - name: Upload to codecov
+        uses: codecov/codecov-action@v1
+        with:
+          files: ./clover.xml
+          directory: ./javascript-approach/coverage/
