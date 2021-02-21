@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 1.14
+      - name: Set up node 14.15.5
         uses: actions/setup-node@v2
         with:
           node-version: 14.15.5
@@ -21,5 +21,3 @@ jobs:
         run: cd javascript-approach && npm install
       - name: Run tests
         run: cd javascript-approach && npm run test:coverage
-      - name: Upload to codecov
-        uses: codecov/codecov-action@v1
