@@ -1,0 +1,32 @@
+{
+  "name": "javascript-approach",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --collectCoverage",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "prettier": {
+    "printWidth": 120
+  },
+  "keywords": [
+    "json",
+    "file processing"
+  ],
+  "author": "Alvaro Alonso",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^5.0.9",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0"
+  }
+}
