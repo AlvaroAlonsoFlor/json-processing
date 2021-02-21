@@ -2,13 +2,15 @@ package com.alvaroalonso.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
+@Getter
 public class Patient {
 
-    private String id;
-    private String name;
-    private String surname;
-    private String phone;
+    private final String id;
+    private final String name;
+    private final String surname;
+    private final String phone;
 
     @JsonCreator
     public Patient(@JsonProperty(value = "id", required = true) String id,
