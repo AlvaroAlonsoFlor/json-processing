@@ -11,6 +11,7 @@ public class TestPlayground {
 
     public static void main(String[] args) {
         log.info("Playground started");
+        
         convertJsonFileToObject("src/test/resources/json-examples/success.json", Appointment.class);
         final ComplexAppointment[] list = convertJsonFileToObject("src/test/resources/json-examples/complex-example.json", ComplexAppointment[].class);
         System.out.println("Number of appointments: " + list.length);
