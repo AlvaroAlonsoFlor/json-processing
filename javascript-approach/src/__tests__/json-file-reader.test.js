@@ -8,11 +8,9 @@ describe("test json-file-reader", () => {
       appointmentDate: "2021/02/20 10:00",
     });
   });
-
   test("should throw an exception when file is not present", () => {
     expect(() => convertJsonToObject("malformed-$$$file")).toThrow(/no such file or directory/);
   });
-
   test("should throw an exception when file content is not json", () => {
     expect(() => convertJsonToObject("./src/__tests__/files/not-json.txt")).toThrow(/Unexpected token/);
   });
