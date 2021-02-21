@@ -1,0 +1,23 @@
+name: javascript-approach ci
+
+on:
+  push:
+    paths:
+      - 'javascript-approach/**'
+  pull_request:
+    paths:
+      - 'javascript-approach/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.15.5
+      - name: Install
+        run: cd javascript-approach && npm install
+      - name: Run tests
+        run: cd javascript-approach && npm run test:coverage
