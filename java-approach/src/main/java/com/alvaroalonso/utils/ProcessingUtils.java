@@ -20,7 +20,6 @@ public class ProcessingUtils {
     }
 
     public static <T> T parseJson(String json, Class<T> type) {
-
         try {
             log.info("Parsing json");
             final T mappedObject = OBJECT_MAPPER.readValue(json, type);
